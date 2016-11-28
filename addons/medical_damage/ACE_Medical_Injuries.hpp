@@ -1,3 +1,6 @@
+// lethalities[] {{<body part index>, <death probability>}, {...}}
+// thresholds[] {{<min damage>, <max number of wounds>}, {...}}
+
 class ACE_Medical_Injuries {
     // Defines all the possible injury types for advanced medical
     class wounds {
@@ -45,14 +48,16 @@ class ACE_Medical_Injuries {
             };
             class Medium {
                 name = CSTRING(Avulsion_Medium);
-                minDamage = 0.3;
-                maxDamage = 0.6;
+                minDamage = 4;
+                maxDamage = 8;
                 bleedingRate = 0.02;
+                lethalities[] = {{1, 0.10}, {0, 0.20}};
             };
             class Large {
                 name = CSTRING(Avulsion_Large);
-                minDamage = 0.5;
+                minDamage = 8;
                 bleedingRate = 0.05;
+                lethalities[] = {{1, 0.30}, {0, 0.80}};
             };
         };
         // Also called bruises, these are the result of a forceful trauma that injures an internal structure without breaking the skin. Blows to the chest, abdomen, or head with a blunt instrument (e.g. a football or a fist) can cause contusions.
@@ -104,6 +109,7 @@ class ACE_Medical_Injuries {
                 name = CSTRING(Crush_Large);
                 minDamage = 0.6;
                 bleedingRate = 0.0095;
+                lethalities[] = {{1, 0.05}, {0, 0.20}};
             };
         };
         // Slicing wounds made with a sharp instrument, leaving even edges. They may be as minimal as a paper cut or as significant as a surgical incision.
@@ -125,11 +131,13 @@ class ACE_Medical_Injuries {
                 minDamage = 0.3;
                 maxDamage = 0.65;
                 bleedingRate = 0.02;
+                lethalities[] = {{1, 0.05}, {0, 0.20}};
             };
             class Large {
                 name = CSTRING(Cut_Large);
                 minDamage = 0.65;
                 bleedingRate = 0.05;
+                lethalities[] = {{1, 0.15}, {0, 0.60}};
             };
         };
         // Also called tears, these are separating wounds that produce ragged edges. They are produced by a tremendous force against the body, either from an internal source as in childbirth, or from an external source like a punch.
@@ -169,20 +177,23 @@ class ACE_Medical_Injuries {
             class Minor {
                 name = CSTRING(VelocityWound_Minor);
                 minDamage = 0.15;
-                maxDamage = 0.3;
+                maxDamage = 3.5;
                 bleedingRate = 0.025;
+                lethalities[] = {{1, 0.05}, {0, 0.20}};
             };
             class Medium {
                 name = CSTRING(VelocityWound_Medium);
-                minDamage = 0.3;
-                maxDamage = 0.75;
+                minDamage = 3.5;
+                maxDamage = 8;
                 bleedingRate = 0.05;
+                lethalities[] = {{1, 0.15}, {0, 0.60}};
             };
             class Large {
                 name = CSTRING(VelocityWound_Large);
-                minDamage = 0.75;
+                minDamage = 8;
                 bleedingRate = 0.1;
-            };
+                lethalities[] = {{1, 0.45}, {0, 0.90}};
+            }; 
         };
         // Deep, narrow wounds produced by sharp objects such as nails, knives, and broken glass.
         class punctureWound {
@@ -197,17 +208,20 @@ class ACE_Medical_Injuries {
                 minDamage = 0.01;
                 maxDamage = 0.5;
                 bleedingRate = 0.01;
+                lethalities[] = {{1, 0.05}, {0, 0.20}};
             };
             class Medium {
                 name = CSTRING(PunctureWound_Medium);
                 minDamage = 0.5;
                 maxDamage = 0.75;
                 bleedingRate = 0.03;
+                lethalities[] = {{1, 0.15}, {0, 0.60}};
             };
             class Large {
                 name = CSTRING(PunctureWound_Large);
                 minDamage = 0.65;
                 bleedingRate = 0.08;
+                lethalities[] = {{1, 0.45}, {0, 0.90}};
             };
         };
     };
